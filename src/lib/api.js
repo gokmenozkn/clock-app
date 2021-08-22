@@ -1,4 +1,4 @@
-const timeUrl = "http://worldtimeapi.org/api/ip";
+const timeUrl = "https://worldtimeapi.org/api/ip";
 const geoUrl = "https://freegeoip.app/json/";
 const randomQuoteUrl = "https://api.quotable.io/random";
 
