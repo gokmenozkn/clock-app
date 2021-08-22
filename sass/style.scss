@@ -1,0 +1,242 @@
+@use "typography" as t;
+@use "variables" as v;
+@use "mixins" as m;
+@use "sass:map";
+$quote-color: #D8D8D8;
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  @include t.Inter;
+  @include t.attributes();
+  background: no-repeat url("../assets/desktop/bg-image-daytime.jpg");
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@mixin row {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+  }
+}
+
+.main {
+  background-color: #3030309d;
+  height: 100vh;
+
+  .container {
+    @include m.container(map.get(v.$container-max-widths, sm), (2em));
+    height: 100%;
+
+    @media (min-width: 960px) {
+      @include m.container(map.get(v.$container-max-widths, xl), (4em 0));
+    }
+
+    .quotes {
+      color: #fff;
+      font-size: 15px;
+  
+      &__container {
+        @media (min-width: 960px) {
+          padding-right: 5em;
+          max-width: 960px;
+        }
+  
+        p {
+          font-size: 12px;
+          line-height: 22px;
+          margin-bottom: .7em;
+          color: $quote-color;
+
+          @media (min-width: 960px) {
+            font-size: 18px;
+          }
+        }
+        .quote {
+          position: relative;
+          padding-right: 2.3em;
+          .icon-refresh {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+        .author {
+          @media (min-width: 960px) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .row {
+    @include row;
+    position: relative;
+    top: 30%;
+
+    @media (min-width: 960px) {
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .time {
+      color: #fff;
+      margin-bottom: 5em;
+
+      @media (min-width: 960px) {
+        margin-bottom: 0;
+      }
+      .msg {
+        display: inline-flex;
+        h4 {
+          letter-spacing: 3px;
+          font-weight: 200;
+          margin-left: 1em;
+          text-transform: uppercase;
+
+          @media (min-width: 960px) {
+            font-size: 24px;
+          }
+        }
+      }
+      .clock {
+        h1 {
+          font-weight: 700;
+          font-size: 100px;
+          line-height: normal;
+
+          @media (min-width: 960px) {
+            font-size: 200px;
+          }
+        }
+        .stamp {
+          font-size: 15px;
+          font-weight: 200;
+        }
+      }
+      .location {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 15px;
+
+        @media (min-width: 960px) {
+          font-size: 24px;
+        }
+      }
+    }
+  
+    .more {
+      position: relative;
+      max-width: 120px;
+  
+      &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 2rem;
+        padding: 2px 3px;
+        cursor: pointer;
+
+        @media (min-width:960px) {
+          width: 150px;
+        }
+  
+        &__text {
+          color: #808080;
+          text-transform: uppercase;
+          margin-left: 1em;
+          letter-spacing: 3px;
+          font-size: 13px;
+          font-weight: 700;
+
+          @media (min-width:960px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.info {
+  background-color: #979797;
+  transition-duration: 0.5s;
+  position: relative;
+
+  .close {
+    position: absolute;
+    cursor: pointer;
+  }
+  &__container {
+    @include m.container(map.get(v.$container-max-widths, sm), (2em));
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media (min-width: 960px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 960px) {
+      @include m.container(map.get(v.$container-max-widths, xl), (4em 0));
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      @media (min-width: 960px) {
+        flex-direction: column;
+      }
+
+      div {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        @media (min-width: 960px) {
+          font-size: 15px;
+        }
+      }
+      h3 {
+        font-size: 18px;
+
+        @media (min-width: 960px) {
+          font-size: 50px;
+          line-height: 50px;
+        }
+      }
+
+    }
+    &__left {
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 960px) {
+        gap: 3em;
+      }
+    }
+    &__right {
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 960px) {
+        gap: 3em;
+      }
+    }
+  }
+}
