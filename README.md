@@ -2,7 +2,7 @@
 
 Used:
 
-- [World Time Api](http://worldtimeapi.org/api/ip) to set the time based on the visitor's IP adress.
+- [World Time Api](http://worldtimeapi.org) to set the time based on the visitor's IP adress.
 - [IP Geolocation API](https://freegeoip.app/) to set the city and country underneath the time.
 
 ### Expected Behaviour
